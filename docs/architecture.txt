@@ -1,0 +1,2 @@
+The architecture diagram is included in the README.md file using Mermaid syntax.
+It depicts the flow from User -> API -> Agents -> Tools/DB.

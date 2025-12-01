@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+motor
+pymongo
+pandas
+matplotlib
+apscheduler
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+httpx
+pytest
+requests

@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    env_file:
+      - .env.example
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/wellness_db
+    volumes:
+      - ./backend:/app/backend
+      - ./analytics_outputs:/app/analytics_outputs
+
+volumes:
+  mongo_data:

@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node.js / Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/coverage/
+
+# Project Specific
+analytics_outputs/
+mongo_data/
+data/sample_logs.json
+# Keep the data directory but ignore contents if they are user generated, 
+# but we might want sample_logs.json if it's part of the repo. 
+# The prompt asked for sample data in the repo, so I will NOT ignore sample_logs.json generally,
+# but I will ignore other json files in data if they are generated.
+# For now, let's just ignore the output directories.
+
+# Logs
+*.log
