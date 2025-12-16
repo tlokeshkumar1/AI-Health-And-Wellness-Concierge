@@ -1,6 +1,39 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, EmailStr
 from typing import List, Optional, Dict
 from datetime import datetime
+
+class UserBase(BaseModel):
+    email: EmailStr
+
+class UserCreate(UserBase):
+    name: str
+    password: str
+
+class User(UserBase):
+    id: str
+    name: str
+    is_active: bool = True
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "id": "653a1b2c3d4e5f6a7b8c9d0e",
+                "name": "John Doe",
+                "email": "john@example.com",
+                "is_active": True
+            }
+        }
+
+class UserInDB(User):
+    hashed_password: str
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+    user: User
+
+class TokenData(BaseModel):
+    email: Optional[str] = None
 
 class DailyLog(BaseModel):
     user_id: str = Field(..., description="User identifier")

@@ -9,7 +9,7 @@ matplotlib
 apscheduler
 python-multipart
 python-jose[cryptography]
-passlib[bcrypt]
+bcrypt
 httpx
 pytest
 requests

@@ -23,6 +23,13 @@ class CalendarTool:
         # In a real app, this would use Google Calendar API
         print(f"[Calendar] Created event: {title} at {start_time} - {description}")
         return {"status": "success", "event": title}
+    
+    async def schedule_reminder(self, user_id: str, reminder_type: str, time: str, description: str):
+        """Schedule a specific type of reminder for a user."""
+        title = f"{reminder_type.replace('_', ' ').title()} Reminder"
+        # In a real app, this would use Google Calendar API to create recurring events
+        print(f"[Calendar] Scheduled {reminder_type} reminder for user {user_id} at {time}: {description}")
+        return {"status": "success", "event": title, "time": time}
 
 class DatabaseTool:
     """Wrapper for MongoDB operations."""

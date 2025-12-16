@@ -5,8 +5,19 @@ from datetime import datetime
 
 client = AsyncIOMotorClient(settings.MONGO_URI)
 db = client.wellness_db
+users_collection = db.users
 logs_collection = db.logs
 memories_collection = db.memories
+
+# User helpers
+async def create_user(user_data: dict) -> dict:
+    user = await users_collection.insert_one(user_data)
+    new_user = await users_collection.find_one({"_id": user.inserted_id})
+    return new_user
+
+async def get_user_by_email(email: str) -> dict:
+    user = await users_collection.find_one({"email": email})
+    return user
 
 async def save_log(log: DailyLog):
     log_dict = log.dict()

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routers import logs, plan, reminders, analytics
+from backend.routers import logs, plan, reminders, analytics, auth, memory
 from backend.utils.scheduler import start_scheduler, stop_scheduler
 
 app = FastAPI(
@@ -19,10 +19,12 @@ app.add_middleware(
 )
 
 # Routers
+app.include_router(auth.router)
 app.include_router(logs.router)
 app.include_router(plan.router)
 app.include_router(reminders.router)
 app.include_router(analytics.router)
+app.include_router(memory.router)
 
 @app.on_event("startup")
 async def startup_event():
