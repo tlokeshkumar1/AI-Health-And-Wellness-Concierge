@@ -389,8 +389,7 @@ Weekly Analytics Agent
 | `MONGODB_DB_NAME` | Database name | ✅ |
 | `GOOGLE_API_KEY` | Google Gemini API key | ✅ |
 | `JWT_SECRET_KEY` | JWT secret for authentication | ✅ |
-| `WEATHER_API_KEY` | Weather API key | ❌ |
-| `DEBUG` | Enable debug mode | ❌ |
+| `WEATHER_API_KEY` | Weather API key | ✅ |
 
 #### Frontend (.env)
 
